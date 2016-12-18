@@ -15,23 +15,18 @@ while bulls < 4
 	bulls = 0
 	cows = 0
 	round += 1
-	puts "Попытка №#{round}"
+	puts "Попытка №#{round}\n"
 
 	vvod = gets.chomp.split("")
-#	vvod.each { |i| i.to_i }
-#	zagadannye.each { |i| i.to_i }
-puts zagadannye
-puts "\n"
-puts vvod
-puts "#{zagadannye.include?(vvod[0].to_i)}"
+
+puts "#{zagadannye.join(' ')} \n #{vvod.join(' ')} \n"	
 
 	vvod.each_with_index do |cif, i| 
-	if zagadannye.include?(cif.to_i)
-		bulls += 1 if zagadannye[i] == cif.to_i
-		cows  += 1 
+		if zagadannye.include?(cif.to_i)
+			bulls += 1 if zagadannye[i] == cif.to_i
+		cows += 1
+		end
 	end
-
-end
 
 	cows = cows - bulls
 	puts "#{bulls} быка, #{cows} коровы\n"
