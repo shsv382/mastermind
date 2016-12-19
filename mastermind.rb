@@ -12,7 +12,7 @@ end
 puts "Угадывайте!"
 bulls = 0
 round = 0
-
+bulls_check = Array.new(4, " ")
 #         ----- Шаг игры -----
 while bulls < 4
 	bulls = 0
@@ -24,13 +24,12 @@ while bulls < 4
 
 	vvod = gets.chomp.split("")
 
-puts "#{zagadannye.join(' ')} \n #{vvod.join(' ')} \n"	# Вывод на экран загаданных и введенных цифр
-
 #  ----- Инкремент быков -----
 
 	vvod.each_with_index do |cif, i| 
 		if zagadannye.include?(cif.to_i) && zagadannye[i] == cif.to_i
 			bulls += 1 
+			bulls_check[i] = "^"
 		end
 	end
 
@@ -42,7 +41,11 @@ puts "#{zagadannye.join(' ')} \n #{vvod.join(' ')} \n"	# Вывод на экр�
 
 #  ----- Убираем повторы -----
 	cows = cows - bulls
+
+	puts "#{vvod.join(' ')}\n#{bulls_check.join(' ')}\n"	# Вывод на экран загаданных и введенных цифр
+
 	puts "#{bulls} быка, #{cows} коровы\n"
+	
 end
 
 puts "   Вы выиграли! Всего за #{round} раундов!   ".center(50, " * ")
