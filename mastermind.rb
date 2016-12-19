@@ -13,8 +13,9 @@ puts "Угадывайте!"
 bulls = 0
 round = 0
 bulls_check = Array.new(4, " ")
+round = 0
 #         ----- Шаг игры -----
-while bulls < 4
+until (bulls == 4) || (round == 12)
 	bulls = 0
 	cows = 0
 	round += 1
@@ -45,7 +46,8 @@ while bulls < 4
 	puts "#{vvod.join(' ')}\n#{bulls_check.join(' ')}\n"	# Вывод на экран загаданных и введенных цифр
 
 	puts "#{bulls} быка, #{cows} коровы\n"
-	
+
 end
 
-puts "   Вы выиграли! Всего за #{round} раундов!   ".center(50, " * ")
+puts "   Вы выиграли! Всего за #{round} раундов!   ".center(50, " * ") if round <= 12 && bulls == 4
+puts "   Игра окончена!  ".center(50, " * ")
